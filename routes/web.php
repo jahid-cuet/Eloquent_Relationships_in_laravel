@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // $phone=User::find(1)->phone;
+    // return $phone;
+
+    $phones=Phone::all();
+    
+    return view('welcome',compact('phones'));
 });

@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function phone(){
+        return $this->hasOne(Phone::class); //jodi model er name onujaye column nam na korti then         return $this->hasOne(Phone::class,''new column name);
+        
+    }
 }
