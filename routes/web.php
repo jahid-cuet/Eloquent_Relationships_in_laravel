@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// This is for One to One -->
+
 Route::get('/', function () {
     // $phone=User::find(1)->phone;
     // return $phone;
@@ -24,8 +27,20 @@ Route::get('/', function () {
     
     return view('welcome',compact('phones'));
 });
+
+// This is for One to many -->
 Route::get('/posts', function () {
     $posts=Post::with('comments')->get();
     // return $posts;
     return view('posts',compact('posts'));
 });
+
+// This is for Many to Many -->
+Route::get('/category_post', function () {
+    // $posts=Post::with('comments')->get();
+    
+            $posts=Post::with('categories')->get();
+            // return $posts;
+            return view('category_post',compact('posts'));
+});
+
